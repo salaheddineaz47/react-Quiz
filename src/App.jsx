@@ -93,11 +93,7 @@ function App() {
     // fetch("http://localhost:8000/questions")
     fetch("https://salaheddineaz47.github.io/host-api/questions.json")
       .then((result) =>result.json())
-      .then((data) =>{
-        dispatch({ type: "dataReceived", payload: data.questions })
-        console.log(data.questions)
-      }
-        )
+      .then((data) => dispatch({ type: "dataReceived", payload: data.questions }))
       .catch((err) => {
         dispatch({ type: "dataFailed" });
         console.log(err);
