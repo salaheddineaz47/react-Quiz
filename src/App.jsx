@@ -89,7 +89,7 @@ function App() {
   } = state;
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
+    fetch("https://api.jsonbin.io/v3/b/6733c58dacd3cb34a8a798f9")
       .then((result) => result.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch(() => dispatch({ type: "dataFailed" }));
