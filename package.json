@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "json-server --watch src/assets/questions.json --port 8000"
+    "preview": "vite preview"
+    // "server": "json-server --watch src/assets/questions.json --port 8000"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3",

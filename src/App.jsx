@@ -26,7 +26,8 @@ const initialState = {
 };
 
 function reducer(state, action) {
-  const question = state.questions.at(state.index);
+  // const question = state.questions.at(state.index);
+  const question = state.questions[state.index];
 
   switch (action.type) {
     case "dataReceived":
@@ -89,10 +90,18 @@ function App() {
   } = state;
 
   useEffect(function () {
-    fetch("https://api.jsonbin.io/v3/b/6733c58dacd3cb34a8a798f9")
-      .then((result) => result.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch(() => dispatch({ type: "dataFailed" }));
+    // fetch("http://localhost:8000/questions")
+    fetch("https://salaheddineaz47.github.io/host-api/questions.json")
+      .then((result) =>result.json())
+      .then((data) =>{
+        dispatch({ type: "dataReceived", payload: data.questions })
+        console.log(data.questions)
+      }
+        )
+      .catch((err) => {
+        dispatch({ type: "dataFailed" });
+        console.log(err);
+      });
   }, []);
 
   const numQuestions = questions.length;
